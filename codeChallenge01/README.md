@@ -3,4 +3,4 @@
 
 
 ## Whiteboard Process
-![ChallengeOne](challengeOneBoard.png)
+![ChallengeOne](challengeOneBoardUpdated.png)
