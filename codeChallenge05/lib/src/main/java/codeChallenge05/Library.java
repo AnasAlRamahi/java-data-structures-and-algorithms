@@ -3,7 +3,8 @@
  */
 
 // Uncomment the package when trying to test:
-//package main.java.codeChallenge05;
+package main.java.codeChallenge05;
+
 
 public class Library {
 
@@ -16,6 +17,12 @@ public class Library {
         ll.insert(3);
         ll.insert(4);
         ll.insert(5);
+        ll.append(10);
+        ll.append(11);
+        ll.append(12);
+        ll.append(13);
+        ll.insertBefore(13, 100);
+        ll.insertAfter(10, 40);
 
         System.out.println(ll.toString());
         System.out.println(ll.includes(2));

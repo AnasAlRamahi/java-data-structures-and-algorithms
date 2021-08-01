@@ -1,6 +1,8 @@
 
+package main.java.codeChallenge05;
+
 public class LinkedList{
-    Node Head;
+    public Node Head;
 
     public void insert(int value){
         Node newNode = new Node(value);
@@ -34,4 +36,51 @@ public class LinkedList{
         myLinkedList += "NULL";
         return myLinkedList;
     }
+
+    public void append(int value){
+        Node counter = Head;
+        Node node = new Node(value);
+        if(Head == null){
+            Head = node;
+            return;
+        }
+        while(counter != null){
+            if (counter.next == null){
+                counter.next = node;
+                return;
+            }
+            counter = counter.next;
+        }
+    }
+
+    public void insertBefore(int value, int newValue){
+        Node counter = Head;
+        Node node = new Node(newValue);
+        while(counter.next != null){
+            if(Head.value == value){
+                node.next = Head;
+                Head = node;
+                return;
+            }
+            if(counter.next.value == value){
+                node.next = counter.next;
+                counter.next = node;
+                return;
+            }
+            counter = counter.next;
+        }
+    }
+
+    public void insertAfter(int value, int newValue){
+        Node counter = Head;
+        Node node = new Node(newValue);
+        while(counter != null){
+            if (counter.value == value){
+                node.next = counter.next;
+                counter.next = node;
+            }
+            counter = counter.next;
+        }
+    }
+
 }
