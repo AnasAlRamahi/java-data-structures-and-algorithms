@@ -3,7 +3,7 @@
  */
 
 // Uncomment the package when trying to test:
-package main.java.codeChallenge05;
+package codeChallenge05;
 
 
 public class Library {
@@ -26,5 +26,7 @@ public class Library {
 
         System.out.println(ll.toString());
         System.out.println(ll.includes(2));
+        System.out.println(ll.getLength());
+        System.out.println(ll.kthFromEnd(12));
     }
 }
