@@ -1,4 +1,4 @@
-package main.java.codeChallenge05;
+package codeChallenge05;
 
 public class Node{
     public int value;
