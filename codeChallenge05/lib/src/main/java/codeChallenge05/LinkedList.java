@@ -102,29 +102,35 @@ public class LinkedList{
         }
     }
 
-    public Integer kthFromEnd(int k) {
+    public Integer kthFromEnd(int k) throws Exception{
 
         int iterations = this.length - k;
         Node current = Head;
 
-        if (this.length == 0){
-            throw new IllegalArgumentException("Linked list is empty!");
-        }else if (this.length == 1){
-            if(k == 0){
-                return Head.value;
+//        try {
+            if (this.length == 0){
+                throw new IllegalArgumentException("Linked list is empty!");
+            }else if (this.length == 1){
+                if(k == 0){
+                    return Head.value;
+                }
+                throw new Exception("Linked list has only one node!");
+            }else if (k > length){
+                throw new Exception("Argument number is high!");
+            }else if (k == length){
+                throw new Exception("Argument number equals the length,it should be less by one atleast!");
+            }else if (k < 0){
+                throw new Exception("Argument number is low!");
             }
-            throw new IllegalArgumentException("Linked list has only one node!");
-        }else if (k > length){
-            throw new IllegalArgumentException("Argument number is high!");
-        }else if (k == length){
-            throw new IllegalArgumentException("Argument number equals the length,it should be less by one atleast!");
-        }else if (k < 0){
-            throw new IllegalArgumentException("Argument number is low!");
-        }
-        for (int i=0; i<iterations-1; i++){
-            current = current.next;
-        }
-        return current.value;
+            for (int i=0; i<iterations-1; i++){
+                current = current.next;
+            }
+            return current.value;
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return null;
+//        }
+
     }
 
 }

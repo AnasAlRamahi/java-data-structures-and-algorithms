@@ -170,38 +170,74 @@ class LibraryTest {
     @Test
     void kGreaterThanLength(){
         LinkedList ll = new LinkedList();
-        Node n1 = new Node(1);
-        Node n2 = new Node(2);
-        Node n3 = new Node(3);
-        Node n4 = new Node(4);
 
-        ll.Head = n1;
-        n1.next = n2;
-        n2.next = n3;
-        n3.next = n4;
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+        ll.append(5);
 
-//        assertThrows(, ll.kthFromEnd(6));
+        assertThrows(Exception.class, () -> {ll.kthFromEnd(66);});
     }
 
-//    @Test
-//    void kEqualsLength(){
-//
-//    }
-//
-//    @Test
-//    void kNotPositive(){
-//
-//    }
-//
-//    @Test
-//    void listSizeOne(){
-//
-//    }
-//
-//    @Test
-//    void kInTheMiddle(){
-//
-//    }
+    @Test
+    void kEqualsLength(){
+        LinkedList ll = new LinkedList();
+
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+        ll.append(5);
+
+        assertThrows(Exception.class, () -> {ll.kthFromEnd(5);});
+    }
+
+    @Test
+    void kNotPositive(){
+        LinkedList ll = new LinkedList();
+
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+
+        assertThrows(Exception.class, () -> {ll.kthFromEnd(-1);});
+    }
+
+    @Test
+    void listSizeOne(){
+        LinkedList ll = new LinkedList();
+        ll.append(10);
+        Integer actual = 0;
+        try{
+            actual = ll.kthFromEnd(0);
+        }catch(Exception e){
+            e.printStackTrace();
+
+        };
+        assertEquals(10, actual);
+    }
+
+    @Test
+    void kInTheMiddle(){
+        LinkedList ll = new LinkedList();
+        ll.append(10);
+        ll.append(11);
+        ll.append(12);
+        ll.append(13);
+        ll.insertBefore(13, 100);
+        ll.insertAfter(10, 40);
+
+        Integer actual = 0;
+        try{
+            actual = ll.kthFromEnd(4);
+        }catch(Exception e){
+            e.printStackTrace();
+
+        };
+        assertEquals(40, actual);
+    }
 
 
 }

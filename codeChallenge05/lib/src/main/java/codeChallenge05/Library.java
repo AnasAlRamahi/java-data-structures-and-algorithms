@@ -12,11 +12,7 @@ public class Library {
 
 
         LinkedList ll = new LinkedList();
-        ll.insert(1);
-        ll.insert(2);
-        ll.insert(3);
-        ll.insert(4);
-        ll.insert(5);
+
         ll.append(10);
         ll.append(11);
         ll.append(12);
@@ -27,6 +23,11 @@ public class Library {
         System.out.println(ll.toString());
         System.out.println(ll.includes(2));
         System.out.println(ll.getLength());
-        System.out.println(ll.kthFromEnd(12));
+        try{
+            System.out.println(ll.kthFromEnd(4));
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
