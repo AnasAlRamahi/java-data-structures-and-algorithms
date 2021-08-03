@@ -166,6 +166,7 @@ class LibraryTest {
         assertEquals(expected,actual);
     }
 
+
     //CodeChallenge07 Testing methods:
     @Test
     void kGreaterThanLength(){
@@ -237,6 +238,124 @@ class LibraryTest {
 
         };
         assertEquals(40, actual);
+    }
+
+
+    //CodeChallenge07 Testing methods:
+    @Test
+    void firstSameLengthSecond(){
+        LinkedList ll = new LinkedList();
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+
+        LinkedList ll2 = new LinkedList();
+        ll2.append(10);
+        ll2.append(20);
+        ll2.append(30);
+        ll2.append(40);
+
+        LinkedList expectedList = new LinkedList();
+        expectedList.append(1);
+        expectedList.append(10);
+        expectedList.append(2);
+        expectedList.append(20);
+        expectedList.append(3);
+        expectedList.append(30);
+        expectedList.append(4);
+        expectedList.append(40);
+
+        assertEquals(expectedList.toString(), Library.zipLists(ll,ll2).toString());
+    }
+
+    @Test
+    void firstMoreLengthThanSecond(){
+        LinkedList ll = new LinkedList();
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+
+        LinkedList ll2 = new LinkedList();
+        ll2.append(10);
+        ll2.append(20);
+
+        LinkedList expectedList = new LinkedList();
+        expectedList.append(1);
+        expectedList.append(10);
+        expectedList.append(2);
+        expectedList.append(20);
+        expectedList.append(3);
+        expectedList.append(4);
+
+        assertEquals(expectedList.toString(), Library.zipLists(ll,ll2).toString());
+    }
+
+    @Test
+    void firstLessLengthThanSecond(){
+        LinkedList ll = new LinkedList();
+        ll.append(1);
+        ll.append(2);
+
+        LinkedList ll2 = new LinkedList();
+        ll2.append(10);
+        ll2.append(20);
+        ll2.append(30);
+        ll2.append(40);
+
+        LinkedList expectedList = new LinkedList();
+        expectedList.append(1);
+        expectedList.append(10);
+        expectedList.append(2);
+        expectedList.append(20);
+        expectedList.append(30);
+        expectedList.append(40);
+
+        assertEquals(expectedList.toString(), Library.zipLists(ll,ll2).toString());
+    }
+
+    @Test
+    void bothListsEmpty(){
+        LinkedList ll = new LinkedList();
+        LinkedList ll2 = new LinkedList();
+        LinkedList expectedList = new LinkedList();
+
+        assertEquals(expectedList.toString(), Library.zipLists(ll,ll2).toString());
+    }
+
+    @Test
+    void firstListEmpty(){
+        LinkedList ll = new LinkedList();
+
+        LinkedList ll2 = new LinkedList();
+        ll2.append(10);
+        ll2.append(20);
+        ll2.append(30);
+
+        LinkedList expectedList = new LinkedList();
+        expectedList.append(10);
+        expectedList.append(20);
+        expectedList.append(30);
+
+        assertEquals(expectedList.toString(), Library.zipLists(ll,ll2).toString());
+    }
+
+    @Test
+    void secondListEmpty(){
+        LinkedList ll = new LinkedList();
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+
+        LinkedList ll2 = new LinkedList();
+
+        LinkedList expectedList = new LinkedList();
+        expectedList.append(1);
+        expectedList.append(2);
+        expectedList.append(3);
+
+        assertEquals(expectedList.toString(), Library.zipLists(ll,ll2).toString());
     }
 
 

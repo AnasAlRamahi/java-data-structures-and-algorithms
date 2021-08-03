@@ -12,22 +12,86 @@ public class Library {
 
 
         LinkedList ll = new LinkedList();
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+        ll.append(5);
+        ll.append(6);
 
-        ll.append(10);
-        ll.append(11);
-        ll.append(12);
-        ll.append(13);
-        ll.insertBefore(13, 100);
-        ll.insertAfter(10, 40);
+//        System.out.println(ll.toString());
+//        System.out.println(ll.includes(2));
+//        System.out.println(ll.getLength());
+//        try{
+//            System.out.println(ll.kthFromEnd(4));
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+        LinkedList ll2 = new LinkedList();
+
+        ll2.append(10);
+        ll2.append(20);
+        ll2.append(30);
+        ll2.append(40);
+        ll2.append(50);
+        ll2.append(60);
+
+
+//        Node n1 = new Node(10);
+//        Node n2 = new Node(20);
+//        Node n3 = new Node(30);
+//        Node n4 = new Node(40);
+//        Node n5 = new Node(50);
+//        Node n6 = new Node(60);
+//
+//        ll2.Head = n1;
+//        n1.next = n2;
+//        n2.next = n3;
+//        n3.next = n4;
+//        n4.next = n5;
+//        n5.next = n6;
 
         System.out.println(ll.toString());
-        System.out.println(ll.includes(2));
-        System.out.println(ll.getLength());
-        try{
-            System.out.println(ll.kthFromEnd(4));
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+        System.out.println(ll2.toString());
+        System.out.println(zipLists(ll,ll2));
 
+
+
+    }
+
+
+    public static LinkedList zipLists(LinkedList list1, LinkedList list2){
+        Node savedNodeList1 = null;
+        Node current1 = list1.Head;
+        Node current2 = list2.Head;
+
+        if(current1 != null && current2 == null){ //This will handle if the first linked list was not empty but the second linked list was empty
+            return list1;
+        }else if(current1 == null && current2 != null){ //This will handle if the second linked list was not empty but the first linked list was empty
+            return list2;
+        }else{
+            while(current1 !=null){
+                savedNodeList1 = current1.next;
+                current1.next = current2;
+                current1 = current2;
+
+                if(current2.next != null){ //This will let the linked list take the rest of the first list if the second linked list was shorter
+                    current2 = current2.next;
+                }
+                else{
+                    current1.next = savedNodeList1;
+                    return list1;
+                }
+                if(savedNodeList1 == null){ //This will let the linked list take the rest of the second list if the first linked list was shorter
+                    current1.next = current2;
+                    return list1;
+                }
+                current1.next = savedNodeList1;
+                current1 = savedNodeList1;
+            }
+
+            return list1;
+        }
     }
 }
