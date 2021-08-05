@@ -49,7 +49,7 @@ public class Stack<T> {
         String result = "TOP\n";
         Node<T> current = this.top;
         while(current != null){
-            result += "{ " + current.value + " }\n ---------------- \n";
+            result += "{ " + current.value + " }\n";
             current = current.next;
         }
         return result;

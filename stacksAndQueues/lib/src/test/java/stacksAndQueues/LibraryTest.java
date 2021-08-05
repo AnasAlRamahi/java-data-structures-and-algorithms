@@ -4,11 +4,134 @@
 package stacksAndQueues;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.EmptyStackException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertEquals(1, 1);
+
+    // Tests for Lab10:
+    @Test void stackCanPush() {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(5);
+        String expected = "TOP\n" +
+                "{ 5 }\n" ;
+        assertEquals(expected, stack.toString());
     }
+
+    @Test void stackPushMultiple() {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(5);
+        stack.push(4);
+        stack.push(3);
+        stack.push(2);
+        stack.push(1);
+        String expected = "TOP\n" +
+                "{ 1 }\n" +
+                "{ 2 }\n" +
+                "{ 3 }\n" +
+                "{ 4 }\n" +
+                "{ 5 }\n";
+        assertEquals(expected, stack.toString());
+    }
+
+    @Test void popOffStack() {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        assertEquals(1, stack.pop());
+    }
+
+    @Test void emptyStackWithPops() {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(5);
+        stack.push(4);
+        stack.push(3);
+        stack.push(2);
+        stack.push(1);
+
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        assertTrue(stack.isEmpty());
+    }
+
+    @Test void stackPeekNext() {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(5);
+        stack.push(4);
+        stack.push(3);
+        Integer expected = 3;
+        assertEquals(expected, stack.top.value);
+    }
+
+    @Test void stackInstantiateEmpty() {
+        Stack<Integer> stack = new Stack<>();
+        String expected = "TOP\n";
+        assertEquals(expected, stack.toString());
+    }
+
+    @Test void peekEmptyException() {
+        Stack<Integer> stack = new Stack<>();
+        assertThrows(EmptyStackException.class, () -> stack.peek());
+    }
+
+
+    @Test void enqueueOnce() {
+        Queue<Character> q = new Queue<>();
+        q.enqueue('a');
+        String expected = "FRONT -> { a } -> REAR";
+        assertEquals(expected, q.toString());
+    }
+
+    @Test void enqueueMultiple() {
+        Queue<Character> q = new Queue<>();
+        q.enqueue('a');
+        q.enqueue('b');
+        q.enqueue('c');
+        q.enqueue('d');
+        String expected = "FRONT -> { a } -> { b } -> { c } -> { d } -> REAR";
+        assertEquals(expected, q.toString());
+    }
+
+    @Test void dequeueOne() {
+        Queue<Character> q = new Queue<>();
+        q.enqueue('a');
+        q.enqueue('b');
+        q.enqueue('c');
+        Character expected = 'a';
+        assertEquals(expected, q.dequeue());
+    }
+
+    @Test void peekTheQueue() {
+        Queue<Character> q = new Queue<>();
+        q.enqueue('b');
+        q.enqueue('c');
+        Character expected = 'b';
+        assertEquals(expected, q.peek());
+    }
+
+    @Test void dequeueUntilEmpty() {
+        Queue<Character> q = new Queue<>();
+        q.enqueue('a');
+        q.enqueue('b');
+        q.enqueue('c');
+        q.dequeue();
+        q.dequeue();
+        q.dequeue();
+        assertNull(q.front);
+    }
+
+    @Test void instantiateEmptyQueue() {
+        Queue<Character> q = new Queue<>();
+        assertNull(q.front);
+    }
+
+    @Test void peekEmptyQueue() {
+        Queue<Character> q = new Queue<>();
+        assertThrows(EmptyStackException.class,  () -> q.peek());
+    }
+
 }
