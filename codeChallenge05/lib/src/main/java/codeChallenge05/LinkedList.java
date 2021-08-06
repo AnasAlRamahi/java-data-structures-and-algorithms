@@ -107,7 +107,6 @@ public class LinkedList{
         int iterations = this.length - k;
         Node current = Head;
 
-//        try {
             if (this.length == 0){
                 throw new IllegalArgumentException("Linked list is empty!");
             }else if (this.length == 1){
@@ -126,11 +125,6 @@ public class LinkedList{
                 current = current.next;
             }
             return current.value;
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            return null;
-//        }
-
     }
 
 }
