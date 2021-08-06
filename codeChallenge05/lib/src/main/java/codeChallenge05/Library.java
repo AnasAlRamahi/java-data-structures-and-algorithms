@@ -12,12 +12,18 @@ public class Library {
 
 
         LinkedList ll = new LinkedList();
-        ll.append(1);
-        ll.append(2);
-        ll.append(3);
-        ll.append(4);
-        ll.append(5);
-        ll.append(6);
+
+        ll.insert(3);
+        ll.insert(2);
+        ll.insert(1);
+        System.out.println(ll.toString());
+
+//        ll.append(1);
+//        ll.append(2);
+//        ll.append(3);
+//        ll.append(4);
+//        ll.append(5);
+//        ll.append(6);
 
 //        System.out.println(ll.toString());
 //        System.out.println(ll.includes(2));

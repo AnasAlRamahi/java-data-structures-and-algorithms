@@ -8,6 +8,76 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
 
+    //CodeChallenge05 Testing methods:
+    @Test
+    void instantiateLinkedList(){
+        LinkedList ll = new LinkedList();
+        assertNull(ll.Head);
+    }
+
+    @Test
+    void canInsert(){
+        LinkedList ll = new LinkedList();
+        ll.insert(3);
+        ll.insert(2);
+        ll.insert(1);
+        String expected = "{ 1 } -> { 2 } -> { 3 } -> NULL";
+        assertEquals(expected, ll.toString());
+    }
+
+    @Test
+    void headPointsRight(){
+        LinkedList ll = new LinkedList();
+        ll.insert(21);
+        ll.insert(22);
+        ll.insert(23);
+        assertEquals(23 ,ll.Head.value);
+    }
+
+    @Test
+    void canInsertMultiple(){
+        LinkedList ll = new LinkedList();
+        ll.insert(21);
+        ll.insert(22);
+        ll.insert(23);
+        String expected = "{ 23 } -> { 22 } -> { 21 } -> NULL";
+        assertEquals(expected ,ll.toString());
+    }
+
+    @Test
+    void LinkedListIncludes(){
+        LinkedList ll = new LinkedList();
+        ll.insert(21);
+        ll.insert(22);
+        ll.insert(23);
+        ll.insert(33);
+        assertTrue(ll.includes(22));
+        assertTrue(ll.includes(33));
+    }
+
+    @Test
+    void LinkedListDoesntIncludes(){
+        LinkedList ll = new LinkedList();
+        ll.insert(21);
+        ll.insert(22);
+        ll.insert(23);
+        ll.insert(33);
+        assertFalse(ll.includes(1));
+        assertFalse(ll.includes(44));
+    }
+
+    @Test
+    void includesWorkingFine(){
+        LinkedList ll = new LinkedList();
+        ll.insert(21);
+        ll.insert(22);
+        ll.insert(23);
+        ll.insert(33);
+        String expected = "{ 33 } -> { 23 } -> { 22 } -> { 21 } -> NULL";
+        assertEquals(expected, ll.toString());
+    }
+
+
     //CodeChallenge06 Testing methods:
 
     @Test
