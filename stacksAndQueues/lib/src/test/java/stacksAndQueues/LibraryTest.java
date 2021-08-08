@@ -13,7 +13,7 @@ class LibraryTest {
 
     // Tests for Lab10:
     @Test void stackCanPush() {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         stack.push(5);
         String expected = "TOP\n" +
                 "{ 5 }\n" ;
@@ -21,7 +21,7 @@ class LibraryTest {
     }
 
     @Test void stackPushMultiple() {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         stack.push(5);
         stack.push(4);
         stack.push(3);
@@ -37,13 +37,13 @@ class LibraryTest {
     }
 
     @Test void popOffStack() {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         stack.push(1);
         assertEquals(1, stack.pop());
     }
 
     @Test void emptyStackWithPops() {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         stack.push(5);
         stack.push(4);
         stack.push(3);
@@ -59,7 +59,7 @@ class LibraryTest {
     }
 
     @Test void stackPeekNext() {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         stack.push(5);
         stack.push(4);
         stack.push(3);
@@ -68,26 +68,26 @@ class LibraryTest {
     }
 
     @Test void stackInstantiateEmpty() {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         String expected = "TOP\n";
         assertEquals(expected, stack.toString());
     }
 
     @Test void peekEmptyException() {
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         assertThrows(EmptyStackException.class, () -> stack.peek());
     }
 
 
     @Test void enqueueOnce() {
-        Queue<Character> q = new Queue<>();
+        Queue<Character> q = new Queue<Character>();
         q.enqueue('a');
         String expected = "FRONT -> { a } -> REAR";
         assertEquals(expected, q.toString());
     }
 
     @Test void enqueueMultiple() {
-        Queue<Character> q = new Queue<>();
+        Queue<Character> q = new Queue<Character>();
         q.enqueue('a');
         q.enqueue('b');
         q.enqueue('c');
@@ -97,7 +97,7 @@ class LibraryTest {
     }
 
     @Test void dequeueOne() {
-        Queue<Character> q = new Queue<>();
+        Queue<Character> q = new Queue<Character>();
         q.enqueue('a');
         q.enqueue('b');
         q.enqueue('c');
@@ -106,7 +106,7 @@ class LibraryTest {
     }
 
     @Test void peekTheQueue() {
-        Queue<Character> q = new Queue<>();
+        Queue q = new Queue<Character>();
         q.enqueue('b');
         q.enqueue('c');
         Character expected = 'b';
@@ -114,7 +114,7 @@ class LibraryTest {
     }
 
     @Test void dequeueUntilEmpty() {
-        Queue<Character> q = new Queue<>();
+        Queue q = new Queue<Character>();
         q.enqueue('a');
         q.enqueue('b');
         q.enqueue('c');
@@ -125,13 +125,65 @@ class LibraryTest {
     }
 
     @Test void instantiateEmptyQueue() {
-        Queue<Character> q = new Queue<>();
+        Queue q = new Queue<Character>();
         assertNull(q.front);
     }
 
     @Test void peekEmptyQueue() {
-        Queue<Character> q = new Queue<>();
+        Queue q = new Queue<Character>();
         assertThrows(EmptyStackException.class,  () -> q.peek());
+    }
+
+
+    // codeChallenge11 tests:
+    @Test void pseudoQueueEnqueue() {
+        PseudoQueue<Integer> q = new PseudoQueue<Integer>();
+        assertEquals("NULL <- Front", q.toString());
+    }
+
+    @Test void pseudoQueueDequeueThrowException() {
+        PseudoQueue<Integer> q = new PseudoQueue<Integer>();
+        assertThrows(EmptyStackException.class,  () -> q.pseudoDequeue());
+    }
+
+    @Test void pseudoEnqueueOnce() {
+        PseudoQueue<Character> q = new PseudoQueue<Character>();
+        q.pseudoEnqueue('a');
+        String expected = "NULL <- { a } <- Front";
+        assertEquals(expected, q.toString());
+    }
+
+    @Test void pseudoEnqueueMultiple() {
+        PseudoQueue<Character> q = new PseudoQueue<Character>();
+        q.pseudoEnqueue('a');
+        q.pseudoEnqueue('b');
+        q.pseudoEnqueue('c');
+        q.pseudoEnqueue('d');
+        String expected = "NULL <- { d } <- { c } <- { b } <- { a } <- Front";
+        assertEquals(expected, q.toString());
+    }
+
+    @Test void pseudoDequeueOnce() {
+        PseudoQueue<Character> q = new PseudoQueue<Character>();
+        q.pseudoEnqueue('b');
+        q.pseudoEnqueue('a');
+        q.pseudoDequeue();
+        String expected = "NULL <- { a } <- Front";
+        assertEquals(expected, q.toString());
+    }
+
+    @Test void pseudoDequeueMultiple() {
+        PseudoQueue<Character> q = new PseudoQueue<Character>();
+        q.pseudoEnqueue('a');
+        q.pseudoEnqueue('b');
+        q.pseudoEnqueue('c');
+        q.pseudoEnqueue('d');
+        q.pseudoEnqueue('e');
+        q.pseudoDequeue();
+        q.pseudoDequeue();
+        q.pseudoDequeue();
+        String expected = "NULL <- { e } <- { d } <- Front";
+        assertEquals(expected, q.toString());
     }
 
 }
