@@ -5,13 +5,30 @@ package stacksAndQueues;
 
 public class Library {
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
+
+
+        PseudoQueue<Integer> pq = new PseudoQueue<Integer>();
+        System.out.println(pq.toString());
+
+        pq.pseudoEnqueue(1);
+        pq.pseudoEnqueue(2);
+        pq.pseudoEnqueue(3);
+
+        System.out.println(pq.toString());
+
+        System.out.println(pq.pseudoDequeue());
+        System.out.println(pq.pseudoDequeue());
+//        System.out.println(pq.pseudoDequeue());
+//        System.out.println(pq.pseudoDequeue());
+
+
+//        Stack stack = new Stack<Integer>();
 //
-        stack.push(1);
+//        stack.push(1);
 //        stack.push(2);
 //        stack.push(3);
 //        stack.push(4);
-        System.out.println(stack);
+//        System.out.println(stack);
 //        System.out.println(stack.pop());
 //
 //        System.out.println(stack);
@@ -21,30 +38,30 @@ public class Library {
 //
 //        System.out.println("The current top of the stack: " + stack.peek());
 
-
-        Queue<Integer> q = new Queue<>();
-        q.enqueue(1);
-        q.enqueue(2);
-        q.enqueue(3);
-        q.enqueue(4);
-        q.enqueue(5);
-
-        System.out.println(q);
-
-        System.out.println(q.dequeue());
-        System.out.println(q);
-
-        System.out.println(q.dequeue());
-        System.out.println(q);
-
-        System.out.println(q.dequeue());
-        System.out.println(q);
-
-        System.out.println(q.dequeue());
-        System.out.println(q);
-
-        System.out.println(q.peek());
-        System.out.println(q.peek());
+//
+//        Queue q = new Queue<Integer>();
+//        q.enqueue(1);
+//        q.enqueue(2);
+//        q.enqueue(3);
+//        q.enqueue(4);
+//        q.enqueue(5);
+//
+//        System.out.println(q);
+//
+//        System.out.println(q.dequeue());
+//        System.out.println(q);
+//
+//        System.out.println(q.dequeue());
+//        System.out.println(q);
+//
+//        System.out.println(q.dequeue());
+//        System.out.println(q);
+//
+//        System.out.println(q.dequeue());
+//        System.out.println(q);
+//
+//        System.out.println(q.peek());
+//        System.out.println(q.peek());
 //
 //        System.out.println(q.dequeue());
 //        System.out.println(q);
