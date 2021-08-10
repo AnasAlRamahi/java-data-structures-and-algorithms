@@ -7,17 +7,34 @@ public class Library {
     public static void main(String[] args) {
 
 
-        PseudoQueue<Integer> pq = new PseudoQueue<Integer>();
-        System.out.println(pq.toString());
 
-        pq.pseudoEnqueue(1);
-        pq.pseudoEnqueue(2);
-        pq.pseudoEnqueue(3);
+        Cat c = new Cat();
+        System.out.println(c.getClass().getName());
 
-        System.out.println(pq.toString());
+        Dog d = new Dog();
 
-        System.out.println(pq.pseudoDequeue());
-        System.out.println(pq.pseudoDequeue());
+
+        AnimalShelter as = new AnimalShelter();
+
+        as.enqueue(c);
+        as.enqueue(d);
+
+        System.out.println(as.animalQueue.toString());
+
+        System.out.println(as.dequeue("cat"));
+        System.out.println(as.animalQueue.toString());
+
+//        PseudoQueue<Integer> pq = new PseudoQueue<Integer>();
+//        System.out.println(pq.toString());
+
+//        pq.pseudoEnqueue(1);
+//        pq.pseudoEnqueue(2);
+//        pq.pseudoEnqueue(3);
+//
+//        System.out.println(pq.toString());
+//
+//        System.out.println(pq.pseudoDequeue());
+//        System.out.println(pq.pseudoDequeue());
 //        System.out.println(pq.pseudoDequeue());
 //        System.out.println(pq.pseudoDequeue());
 
