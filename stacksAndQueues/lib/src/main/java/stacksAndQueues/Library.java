@@ -14,8 +14,10 @@ public class Library {
         Dog d2 = new Dog("Kawaii");
         Dog d3 = new Dog("Moon");
 
+
         AnimalShelter as = new AnimalShelter();
 
+        as.animalQueue.toString();
         as.enqueue(c1);
         as.enqueue(c2);
         as.enqueue(c3);
@@ -24,8 +26,8 @@ public class Library {
         as.enqueue(d3);
 
         System.out.println(as.animalQueue.toString());
-        System.out.println(as.dequeue("dog"));
-        System.out.println(as.dequeue("dog"));
+        System.out.println(as.dequeue("aaaat"));
+        System.out.println(as.dequeue("cat"));
         System.out.println(as.animalQueue.toString());
 
 
