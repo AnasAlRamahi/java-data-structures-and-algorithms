@@ -53,7 +53,20 @@ First-in, First out Animal Shelter.
 ### WhiteBoard process:
 ![codeChallenge12](challenge12.PNG)
 
- 
+
+## Challenge13
+Multi-bracket Validation.
+
+### Approach & Efficiency
++ Write a function called validate brackets
+    + Arguments: string
+    + Return: boolean (representing whether or not the brackets in the string are balanced).
+
+### WhiteBoard process:
+![codeChallenge13](challenge13.PNG)
+
+
 ## API
 + org.junit.jupiter.api.Test;
 + static org.junit.jupiter.api.Assertions.*;
+

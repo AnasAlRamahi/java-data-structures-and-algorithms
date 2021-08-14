@@ -278,4 +278,52 @@ class LibraryTest {
 
     }
 
+    // codeChallenge12 tests:
+    @Test
+    void pushingBrackets(){
+//        String s = "";
+//        assertTrue(Library.validateBrackets(s));
+
+        String s = "{}";
+        assertTrue(Library.validateBrackets(s));
+
+        s = "{}(){}";
+        assertTrue(Library.validateBrackets(s));
+
+        s = "()[[Extra Characters]]";
+        assertTrue(Library.validateBrackets(s));
+
+        s = "(){}[[]]";
+        assertTrue(Library.validateBrackets(s));
+
+        s = "{}{Code}[Fellows](())";
+        assertTrue(Library.validateBrackets(s));
+
+        s = "[({}]";
+        assertFalse(Library.validateBrackets(s));
+
+        s = "(](";
+        assertFalse(Library.validateBrackets(s));
+
+        s = "{(})";
+        assertFalse(Library.validateBrackets(s));
+
+        s = "{";
+        assertFalse(Library.validateBrackets(s));
+
+        s = "[}";
+        assertFalse(Library.validateBrackets(s));
+
+        s = ")";
+        assertFalse(Library.validateBrackets(s));
+
+        s = "}";
+        assertFalse(Library.validateBrackets(s));
+
+        s = "]";
+        assertFalse(Library.validateBrackets(s));
+
+
+    }
+
 }
