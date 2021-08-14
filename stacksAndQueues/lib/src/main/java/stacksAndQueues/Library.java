@@ -6,23 +6,31 @@ package stacksAndQueues;
 public class Library {
     public static void main(String[] args) {
 
+        Cat c1 = new Cat("NimNim");
+        Cat c2 = new Cat("MishMish");
+        Cat c3 = new Cat("Quora");
 
-
-        Cat c = new Cat();
-        System.out.println(c.getClass().getName());
-
-        Dog d = new Dog();
-
+        Dog d1 = new Dog("Meezo");
+        Dog d2 = new Dog("Kawaii");
+        Dog d3 = new Dog("Moon");
 
         AnimalShelter as = new AnimalShelter();
 
-        as.enqueue(c);
-        as.enqueue(d);
+        as.enqueue(c1);
+        as.enqueue(c2);
+        as.enqueue(c3);
+        as.enqueue(d1);
+        as.enqueue(d2);
+        as.enqueue(d3);
 
         System.out.println(as.animalQueue.toString());
-
-        System.out.println(as.dequeue("cat"));
+        System.out.println(as.dequeue("dog"));
+        System.out.println(as.dequeue("dog"));
         System.out.println(as.animalQueue.toString());
+
+
+//        System.out.println(as.dequeue("cat"));
+//        System.out.println(as.animalQueue.toString());
 
 //        PseudoQueue<Integer> pq = new PseudoQueue<Integer>();
 //        System.out.println(pq.toString());

@@ -9,36 +9,20 @@ public class AnimalShelter<T> {
 
     public Animal dequeue(String pref) {
         Animal result = null;
-        if (pref == "cat") {
-            if(animalQueue.front == null){
-                return null;
-            }
-            result = animalQueue.dequeue();
-            if(result.getClass().getSimpleName() == "Cat"){
-                return result;
-            }
-            while (animalQueue.peek().getClass().getSimpleName() != "Cat") {
-                result = animalQueue.dequeue();
-                if(result.getClass().getSimpleName() == "Cat"){
-                    return result;
-                }
-                if (animalQueue.front == null) {
-                    return null;
-                }
-            }
-            return result;
+        Queue<Animal> secondQueue = new Queue<Animal>();
 
-        } else if (pref == "dog") {
-            while (animalQueue.peek().toString() != "Dog") {
-                result = animalQueue.dequeue();
-                if (animalQueue.front == null) {
-                    return null;
-                }
-            }
-            return result;
+        while (!animalQueue.peek().getClass().getSimpleName().equalsIgnoreCase(pref) && animalQueue.front != null) {
+            secondQueue.enqueue(animalQueue.dequeue());
         }
 
-        return null;
+        result = animalQueue.dequeue();
 
+        while (animalQueue.front != null) {
+            secondQueue.enqueue(animalQueue.dequeue());
+        }
+
+        animalQueue = secondQueue;
+
+        return result;
     }
 }
