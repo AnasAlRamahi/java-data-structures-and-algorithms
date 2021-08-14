@@ -186,4 +186,96 @@ class LibraryTest {
         assertEquals(expected, q.toString());
     }
 
+    // codeChallenge12 tests:
+    @Test
+    void initializeQueue(){
+        AnimalShelter as = new AnimalShelter();
+        assertNull(as.animalQueue.front);
+    }
+
+    @Test
+    void enqueueInShelter(){
+        AnimalShelter as = new AnimalShelter();
+        Cat c1 = new Cat("NimNim");
+        as.enqueue(c1);
+        String expected = "FRONT -> { Cat: NimNim } -> REAR";
+        assertEquals(expected,as.animalQueue.toString());
+
+        Cat c2 = new Cat("MishMish");
+        Cat c3 = new Cat("Quora");
+        Dog d1 = new Dog("Buck");
+        Dog d2 = new Dog("Meezo");
+        Dog d3 = new Dog("Keeko");
+
+        as.enqueue(d1);
+
+        as.enqueue(d2);
+        as.enqueue(c2);
+
+        as.enqueue(c3);
+        as.enqueue(d3);
+
+        expected = "FRONT -> { Cat: NimNim } -> { Dog: Buck } -> { Dog: Meezo } -> { Cat: MishMish } -> { Cat: Quora } -> { Dog: Keeko } -> REAR";
+        assertEquals(expected,as.animalQueue.toString());
+    }
+
+    @Test
+    void dequeueInShelter(){
+        AnimalShelter as = new AnimalShelter();
+        Cat c1 = new Cat("NimNim");
+        Cat c2 = new Cat("MishMish");
+        Cat c3 = new Cat("Quora");
+        Dog d1 = new Dog("Buck");
+        Dog d2 = new Dog("Meezo");
+        Dog d3 = new Dog("Keeko");
+
+        as.enqueue(c1);
+        as.enqueue(d1);
+
+        as.enqueue(d2);
+        as.enqueue(c2);
+
+        as.enqueue(c3);
+        as.enqueue(d3);
+
+
+        as.dequeue("cat");
+        String expected = "FRONT -> { Dog: Buck } -> { Dog: Meezo } -> { Cat: MishMish } -> { Cat: Quora } -> { Dog: Keeko } -> REAR";
+        assertEquals(expected,as.animalQueue.toString());
+
+        as.dequeue("cat");
+        expected = "FRONT -> { Dog: Buck } -> { Dog: Meezo } -> { Cat: Quora } -> { Dog: Keeko } -> REAR";
+        assertEquals(expected,as.animalQueue.toString());
+
+        as.dequeue("dog");
+        expected = "FRONT -> { Dog: Meezo } -> { Cat: Quora } -> { Dog: Keeko } -> REAR";
+        assertEquals(expected,as.animalQueue.toString());
+
+        as.dequeue("cat");
+        as.dequeue("dog");
+        expected = "FRONT -> { Dog: Keeko } -> REAR";
+        assertEquals(expected,as.animalQueue.toString());
+
+    }
+
+    @Test
+    void wrongPreferredAnimal(){
+        AnimalShelter as = new AnimalShelter();
+        Cat c1 = new Cat("NimNim");
+        Cat c2 = new Cat("MishMish");
+        Dog d1 = new Dog("Buck");
+        Dog d2 = new Dog("Meezo");
+
+        as.enqueue(c1);
+        as.enqueue(d1);
+        as.enqueue(d2);
+        as.enqueue(c2);
+
+        assertNull(as.dequeue("something wrong"));
+        assertNull(as.dequeue("cattt"));
+        assertNull(as.dequeue("doogg"));
+        assertNull(as.dequeue("dogcat"));
+
+    }
+
 }

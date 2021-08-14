@@ -1,7 +1,7 @@
 package stacksAndQueues;
 
 public class AnimalShelter<T> {
-    Queue<Animal> animalQueue = new Queue<Animal>();
+    public Queue<Animal> animalQueue = new Queue<Animal>();
 
     public void enqueue(Animal animal) {
         animalQueue.enqueue(animal);
@@ -11,6 +11,9 @@ public class AnimalShelter<T> {
         Animal result = null;
         Queue<Animal> secondQueue = new Queue<Animal>();
 
+        if (pref.toLowerCase() != "cat" && pref.toLowerCase() != "dog"){
+            return null;
+        }
         while (!animalQueue.peek().getClass().getSimpleName().equalsIgnoreCase(pref) && animalQueue.front != null) {
             secondQueue.enqueue(animalQueue.dequeue());
         }

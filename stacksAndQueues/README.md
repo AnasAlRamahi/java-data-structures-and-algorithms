@@ -37,6 +37,22 @@ Implement a Queue using two Stacks (PseudoQueue).
 ### WhiteBoard process:
 ![codeChallenge11](challenge11.PNG)
 
+
+## Challenge12
+First-in, First out Animal Shelter.
+
+### Approach & Efficiency
++ Create a class called AnimalShelter which holds only dogs and cats.
++ The shelter operates using a first-in, first-out approach.
++ **enqueue**
+  + Arguments: animal (animal can be either a dog or a cat object).
+
++ **dequeue**
+  + Arguments: pref (If pref is not "dog" or "cat" then return null).
+
+### WhiteBoard process:
+![codeChallenge12](challenge12.PNG)
+
  
 ## API
 + org.junit.jupiter.api.Test;
