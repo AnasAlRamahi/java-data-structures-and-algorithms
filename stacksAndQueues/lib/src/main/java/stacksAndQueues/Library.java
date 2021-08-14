@@ -6,99 +6,99 @@ package stacksAndQueues;
 public class Library {
     public static void main(String[] args) {
 
-        Cat c1 = new Cat("NimNim");
-        Cat c2 = new Cat("MishMish");
-        Cat c3 = new Cat("Quora");
-
-        Dog d1 = new Dog("Meezo");
-        Dog d2 = new Dog("Kawaii");
-        Dog d3 = new Dog("Moon");
-
-
-        AnimalShelter as = new AnimalShelter();
-
-        as.animalQueue.toString();
-        as.enqueue(c1);
-        as.enqueue(c2);
-        as.enqueue(c3);
-        as.enqueue(d1);
-        as.enqueue(d2);
-        as.enqueue(d3);
-
-        System.out.println(as.animalQueue.toString());
-        System.out.println(as.dequeue("aaaat"));
-        System.out.println(as.dequeue("cat"));
-        System.out.println(as.animalQueue.toString());
-
-
+//        Cat c1 = new Cat("NimNim");
+//        Cat c2 = new Cat("MishMish");
+//        Cat c3 = new Cat("Quora");
+//
+//        Dog d1 = new Dog("Meezo");
+//        Dog d2 = new Dog("Kawaii");
+//        Dog d3 = new Dog("Moon");
+//
+//
+//        AnimalShelter as = new AnimalShelter();
+//
+//        as.animalQueue.toString();
+//        as.enqueue(c1);
+//        as.enqueue(c2);
+//        as.enqueue(c3);
+//        as.enqueue(d1);
+//        as.enqueue(d2);
+//        as.enqueue(d3);
+//
+//        System.out.println(as.animalQueue.toString());
+//        System.out.println(as.dequeue("aaaat"));
 //        System.out.println(as.dequeue("cat"));
 //        System.out.println(as.animalQueue.toString());
 
-//        PseudoQueue<Integer> pq = new PseudoQueue<Integer>();
-//        System.out.println(pq.toString());
+        String s = "{}";
+        System.out.println(validateBrackets(s));
 
-//        pq.pseudoEnqueue(1);
-//        pq.pseudoEnqueue(2);
-//        pq.pseudoEnqueue(3);
-//
-//        System.out.println(pq.toString());
-//
-//        System.out.println(pq.pseudoDequeue());
-//        System.out.println(pq.pseudoDequeue());
-//        System.out.println(pq.pseudoDequeue());
-//        System.out.println(pq.pseudoDequeue());
+        s = "{}";
+        System.out.println("should be true: " + validateBrackets(s));
+
+        s = "{}(){}";
+        System.out.println("should be true: " + validateBrackets(s));
+
+        s = "()[[Extra Characters]]";
+        System.out.println("should be true: " + validateBrackets(s));
+
+        s = "(){}[[]]";
+        System.out.println("should be true: " + validateBrackets(s));
+
+        s = "{}{Code}[Fellows](())";
+        System.out.println("should be true: " + validateBrackets(s));
 
 
-//        Stack stack = new Stack<Integer>();
-//
-//        stack.push(1);
-//        stack.push(2);
-//        stack.push(3);
-//        stack.push(4);
-//        System.out.println(stack);
-//        System.out.println(stack.pop());
-//
-//        System.out.println(stack);
-//        System.out.println(stack.pop());
-//
-//        System.out.println(stack);
-//
-//        System.out.println("The current top of the stack: " + stack.peek());
+        s = "[({}]";
+        System.out.println("should be false: " + validateBrackets(s));
 
-//
-//        Queue q = new Queue<Integer>();
-//        q.enqueue(1);
-//        q.enqueue(2);
-//        q.enqueue(3);
-//        q.enqueue(4);
-//        q.enqueue(5);
-//
-//        System.out.println(q);
-//
-//        System.out.println(q.dequeue());
-//        System.out.println(q);
-//
-//        System.out.println(q.dequeue());
-//        System.out.println(q);
-//
-//        System.out.println(q.dequeue());
-//        System.out.println(q);
-//
-//        System.out.println(q.dequeue());
-//        System.out.println(q);
-//
-//        System.out.println(q.peek());
-//        System.out.println(q.peek());
-//
-//        System.out.println(q.dequeue());
-//        System.out.println(q);
-//
-//        System.out.println(q.dequeue());
-//        System.out.println(q);
+        s = "(](";
+        System.out.println("should be false: " + validateBrackets(s));
+
+        s = "{(})";
+        System.out.println("should be false: " + validateBrackets(s));
 
 
 
+    }
 
+    public static boolean validateBrackets(String s){
+        char currentChar = s.charAt(0);
+        Stack<Character> bracketStack = new Stack<Character>();
 
+        for (int i = 0 ; i < s.length() ; i++){
+            currentChar = s.charAt(i);
+
+            if(currentChar == '{' || currentChar == '(' || currentChar == '['){
+                bracketStack.push(currentChar);
+            }else if(currentChar == '}'){
+                if(bracketStack.top == null){
+                    return false;
+                }else if(bracketStack.peek() == '{'){
+                    bracketStack.pop();
+                }else{
+                    return false;
+                }
+            }else if(currentChar == ')'){
+                if(bracketStack.top == null){
+                    return false;
+                }else if(bracketStack.peek() == '('){
+                    bracketStack.pop();
+                }else{
+                    return false;
+                }
+            }else if(currentChar == ']'){
+                if(bracketStack.top == null){
+                    return false;
+                }else if(bracketStack.peek() == '['){
+                    bracketStack.pop();
+                }else{
+                    return false;
+                }
+            }
+        }
+        if(bracketStack.top == null)
+        return true;
+        else return false;
     }
 }
