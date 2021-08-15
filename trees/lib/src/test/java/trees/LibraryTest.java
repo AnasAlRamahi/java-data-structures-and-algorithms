@@ -4,22 +4,26 @@
 package trees;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void instantiateTree() {
+    @Test
+    void instantiateTree() {
         BinaryTree<Integer> newTree = new BinaryTree<Integer>();
         assertNull(newTree.root);
     }
 
-    @Test void singleRootTree() {
+    @Test
+    void singleRootTree() {
         BinaryTree<Integer> newTree = new BinaryTree<Integer>();
         Node<Integer> root = new Node<Integer>(22);
         newTree.root = root;
         assertNotNull(newTree.root);
     }
 
-    @Test void singleRightAndLeft() {
+    @Test
+    void singleRightAndLeft() {
         BinaryTree<Integer> newTree = new BinaryTree<Integer>();
         Node<Integer> root = new Node<Integer>(22);
         Node<Integer> left = new Node<Integer>(15);
@@ -32,7 +36,8 @@ class LibraryTest {
         assertEquals(expected, newTree.inOrder(newTree.root));
     }
 
-    @Test void preOrderTraversal() {
+    @Test
+    void preOrderTraversal() {
         BinaryTree<Integer> newTree = new BinaryTree<Integer>();
         Node<Integer> root = new Node<Integer>(22);
         newTree.root = root;
@@ -49,7 +54,8 @@ class LibraryTest {
         assertEquals(expected, newTree.preOrder(newTree.root));
     }
 
-    @Test void inOrderTraversal() {
+    @Test
+    void inOrderTraversal() {
         BinaryTree<Integer> newTree = new BinaryTree<Integer>();
         Node<Integer> root = new Node<Integer>(22);
         newTree.root = root;
@@ -66,7 +72,8 @@ class LibraryTest {
         assertEquals(expected, newTree.inOrder(newTree.root));
     }
 
-    @Test void postOrderTraversal() {
+    @Test
+    void postOrderTraversal() {
         BinaryTree<Integer> newTree = new BinaryTree<Integer>();
         Node<Integer> root = new Node<Integer>(22);
         newTree.root = root;
@@ -81,6 +88,36 @@ class LibraryTest {
 
         String expected = "17 -> 15 -> 25 -> 30 -> 22 -> ";
         assertEquals(expected, newTree.postOrder(newTree.root));
+    }
+
+    // Code Challenge 16 tests:
+    @Test
+    void maximumInTree() {
+        BinaryTree<Integer> newTree = new BinaryTree<Integer>();
+
+        assertThrows(NullPointerException.class, () -> newTree.maxInTree());
+
+        Node<Integer> root = new Node<Integer>(22);
+        newTree.root = root;
+        Node<Integer> left = new Node<Integer>(15);
+        newTree.root.left = left;
+        Node<Integer> right = new Node<Integer>(30);
+        newTree.root.right = right;
+        Node<Integer> leftright = new Node<Integer>(17);
+        newTree.root.left.right = leftright;
+        Node<Integer> rightleft = new Node<Integer>(25);
+        newTree.root.right.left = rightleft;
+
+        int expected = 30;
+        assertEquals(expected, newTree.maxInTree());
+
+        Node<Integer> newNode = new Node<Integer>(50);
+        leftright.left = newNode;
+        Node<Integer> newNode2 = new Node<Integer>(33);
+        rightleft.left = newNode2;
+
+        expected = 50;
+        assertEquals(expected, newTree.maxInTree());
     }
 
 }
