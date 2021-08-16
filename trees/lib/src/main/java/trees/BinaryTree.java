@@ -1,6 +1,8 @@
 package trees;
 
-import java.util.EmptyStackException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BinaryTree<T> {
     Node<T> root;
@@ -63,37 +65,28 @@ public class BinaryTree<T> {
             maxInTree(visitedNode.right);
         }
 
+    }
 
-//        if(visitedNode.left != null){
-//            System.out.println("visit left");
-//            maxInTree(visitedNode.left);
-//        }
-//
-//        if(visitedNode.right != null){
-//            System.out.println("visit right");
-//            maxInTree(visitedNode.right);
-//        }
+    public List<T> treeBreadthFirst(BinaryTree<T> tree){
+        if(tree.root == null){
+            return null;
+        }
+        List<T> resultList = new ArrayList<T>();
+        Queue<T> q = new Queue<T>();
 
-//        if(visitedNode.left != null && visitedNode.right != null){
-//            System.out.println("comparing");
-//            if(maxInTree(visitedNode.left) > maxInTree(visitedNode.right)){
-//                return (int)visitedNode.left.value;
-//            }else{
-//                return (int)visitedNode.right.value;
-//            }
-//        }
-//        if(visitedNode.left == null && visitedNode.right != null){
-//            return (int)visitedNode.right.value;
-//        }else if(visitedNode.left != null && visitedNode.right == null){
-//            return (int)visitedNode.left.value;
-//        }
-//        else if (visitedNode.left == null && visitedNode.right == null){
-//            return (int)visitedNode.value;
-//        }
-//        else{
-//            System.out.println("hahaha");
-//            return 0;
-//        }
+        q.enqueue(tree.root);
+
+        while(!q.isEmpty()){
+            if(q.front.left != null){
+                q.enqueue(q.front.left);
+            }
+            if(q.front.right != null){
+                q.enqueue(q.front.right);
+            }
+            resultList.add(q.dequeue());
+
+        }
+        return resultList;
     }
 
 }

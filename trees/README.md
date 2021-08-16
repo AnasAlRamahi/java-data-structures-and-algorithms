@@ -29,3 +29,13 @@ You can assume that the values stored in the Binary Tree will be numeric.**
 
 ### Challenge16 Whiteboard:
 ![Challenge16](Challenge16.PNG)
+
+
+## Challenge17:
+Write a function called breadth first
++ Arguments: tree
++ Return: list of all values in the tree, in the order they were encountered
+*Traverse the input tree using a Breadth-first approach.*
+  
+### Challenge17 Whiteboard:
+![Challenge17](Challenge17.PNG)
