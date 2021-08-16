@@ -44,23 +44,24 @@ public class Library {
         newTree.root.right.left = node5;
         newTree.root.right.right = node6;
 
-        newTree.addNode(1);
-        newTree.addNode(5);
-        newTree.addNode(12);
-        newTree.addNode(14);
-        newTree.addNode(19);
-        newTree.addNode(21);
-        newTree.addNode(23);
+//        newTree.addNode(1);
+//        newTree.addNode(5);
+//        newTree.addNode(12);
+//        newTree.addNode(14);
+//        newTree.addNode(19);
+//        newTree.addNode(21);
+//        newTree.addNode(23);
 
-//        System.out.println(newTree.inOrder(root));
+        System.out.println(newTree.inOrder(root));
 //        System.out.println("-----------");
 //        System.out.println(newTree.contains(5));
 //        System.out.println(newTree.contains(17));
 //        System.out.println(newTree.contains(99));
 //        System.out.println(newTree.contains(19));
 
-        System.out.println("----------- Max -----------");
-        System.out.println(newTree.maxInTree());
+//        System.out.println("----------- Max -----------");
+//        System.out.println(newTree.maxInTree());
+        System.out.println(newTree.treeBreadthFirst(newTree));
 
     }
 }

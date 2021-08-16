@@ -120,4 +120,27 @@ class LibraryTest {
         assertEquals(expected, newTree.maxInTree());
     }
 
+    // Code Challenge 17 tests:
+    @Test
+    void BreadthFirstSearch() {
+        BinaryTree<Integer> newTree = new BinaryTree<Integer>();
+
+        assertNull(newTree.treeBreadthFirst(newTree));
+
+        Node<Integer> root = new Node<Integer>(22);
+        newTree.root = root;
+
+        assertEquals("[22]" , newTree.treeBreadthFirst(newTree).toString());
+
+        Node<Integer> left = new Node<Integer>(15);
+        newTree.root.left = left;
+        Node<Integer> right = new Node<Integer>(30);
+        newTree.root.right = right;
+        Node<Integer> leftright = new Node<Integer>(17);
+        newTree.root.left.right = leftright;
+        Node<Integer> rightleft = new Node<Integer>(25);
+        newTree.root.right.left = rightleft;
+
+        assertEquals("[22, 15, 30, 17, 25]" , newTree.treeBreadthFirst(newTree).toString());
+    }
 }
