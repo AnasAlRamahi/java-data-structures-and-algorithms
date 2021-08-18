@@ -6,6 +6,29 @@ package trees;
 public class Library {
     public static void main(String[] args) {
 
+        KaryTree Tree = new KaryTree(4);
+        KNode root = new KNode("10");
+        KNode node1 = new KNode("7");
+        KNode node2 = new KNode("15");
+        KNode node3 = new KNode("3");
+        KNode node4 = new KNode("8");
+        KNode node5 = new KNode("13");
+        KNode node6 = new KNode("20");
+
+        Tree.root = root;
+
+        root.children.add(node1);
+        root.children.add(node2);
+
+        node1.children.add(node3);
+
+        node2.children.add(node4);
+        node2.children.add(node5);
+        node2.children.add(node6);
+
+        System.out.println(Tree.fizzBuzz(Tree));
+
+
 //        BinaryTree<Character> newTree = new BinaryTree<Character>();
 //        Node<Character> root = new Node('A');
 //        Node<Character> node1 = new Node('B');
@@ -28,21 +51,21 @@ public class Library {
 //        System.out.println("---------");
 //        newTree.postOrder(root);
 
-        BinarySearchTree<Integer> newTree = new BinarySearchTree<Integer>();
-        Node<Integer> root = new Node(10);
-        Node<Integer> node1 = new Node(7);
-        Node<Integer> node2 = new Node(15);
-        Node<Integer> node3 = new Node(3);
-        Node<Integer> node4 = new Node(8);
-        Node<Integer> node5 = new Node(13);
-        Node<Integer> node6 = new Node(20);
-        newTree.root = root;
-        newTree.root.left = node1;
-        newTree.root.right = node2;
-        newTree.root.left.left = node3;
-        newTree.root.left.right = node4;
-        newTree.root.right.left = node5;
-        newTree.root.right.right = node6;
+//        BinarySearchTree<Integer> newTree = new BinarySearchTree<Integer>();
+//        Node<Integer> root = new Node(10);
+//        Node<Integer> node1 = new Node(7);
+//        Node<Integer> node2 = new Node(15);
+//        Node<Integer> node3 = new Node(3);
+//        Node<Integer> node4 = new Node(8);
+//        Node<Integer> node5 = new Node(13);
+//        Node<Integer> node6 = new Node(20);
+//        newTree.root = root;
+//        newTree.root.left = node1;
+//        newTree.root.right = node2;
+//        newTree.root.left.left = node3;
+//        newTree.root.left.right = node4;
+//        newTree.root.right.left = node5;
+//        newTree.root.right.right = node6;
 
 //        newTree.addNode(1);
 //        newTree.addNode(5);
@@ -52,7 +75,7 @@ public class Library {
 //        newTree.addNode(21);
 //        newTree.addNode(23);
 
-        System.out.println(newTree.inOrder(root));
+//        System.out.println(newTree.inOrder(root));
 //        System.out.println("-----------");
 //        System.out.println(newTree.contains(5));
 //        System.out.println(newTree.contains(17));
@@ -61,7 +84,7 @@ public class Library {
 
 //        System.out.println("----------- Max -----------");
 //        System.out.println(newTree.maxInTree());
-        System.out.println(newTree.treeBreadthFirst(newTree));
+//        System.out.println(newTree.treeBreadthFirst(newTree));
 
     }
 }
