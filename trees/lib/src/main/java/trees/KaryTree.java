@@ -18,12 +18,15 @@ public class KaryTree {
         int iterations = kTree.k;
         KaryTree newTree = new KaryTree(iterations);
         newTree.root = kTree.root;
-        fizzBuzzRecursion(newTree.root, iterations);
+        if(newTree.root != null){
+            fizzBuzzRecursion(newTree.root);
+        }else{
+            return null;
+        }
         return newTree;
     }
 
-    public void fizzBuzzRecursion(KNode root, int k){
-
+    public void fizzBuzzRecursion(KNode root){
 
         if (Integer.parseInt(root.value) % 3 == 0 && Integer.parseInt(root.value) % 5 == 0 ){
             root.value = "FizzBuzz";
@@ -40,7 +43,8 @@ public class KaryTree {
             return;
         }
         for(KNode child : root.children){
-                fizzBuzzRecursion(child, k);
+                fizzBuzzRecursion(child);
         }
     }
+
 }
