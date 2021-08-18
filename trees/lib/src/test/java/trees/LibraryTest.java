@@ -143,4 +143,40 @@ class LibraryTest {
 
         assertEquals("[22, 15, 30, 17, 25]" , newTree.treeBreadthFirst(newTree).toString());
     }
+
+    // Code Challenge 18 tests:
+    @Test
+    public void fizzbuzzTest(){
+        KaryTree tree = new KaryTree(4);
+        assertNull(tree.root);
+        KNode root = new KNode("10");
+        KNode node1 = new KNode("7");
+        KNode node2 = new KNode("15");
+        KNode node3 = new KNode("3");
+        KNode node4 = new KNode("8");
+        KNode node5 = new KNode("13");
+        KNode node6 = new KNode("20");
+
+        tree.root = root;
+
+        root.children.add(node1);
+        root.children.add(node2);
+
+        node1.children.add(node3);
+
+        node2.children.add(node4);
+        node2.children.add(node5);
+        node2.children.add(node6);
+
+        tree.fizzBuzz(tree);
+
+        assertEquals("Buzz", root.value);
+        assertEquals("7", node1.value);
+        assertEquals("FizzBuzz", node2.value);
+        assertEquals("Fizz", node3.value);
+        assertEquals("8", node4.value);
+        assertEquals("13", node5.value);
+        assertEquals("Buzz", node6.value);
+    }
+
 }
