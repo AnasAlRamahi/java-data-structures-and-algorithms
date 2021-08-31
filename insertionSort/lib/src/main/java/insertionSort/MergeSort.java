@@ -1,59 +1,55 @@
 package insertionSort;
 
+
 import java.util.Arrays;
 
 public class MergeSort {
 
-    public static int[] mergeSort(int[] arr){
-        int n = arr.length;
+        public static int[] mergeSort(int[] arr){
+            int n = arr.length;
 
-        if (n > 1){
-            int mid = n/2;
-            int[] left = new int[mid];
-            int[] right = new int[n-mid];
+            if (n > 1){
+                int mid = n/2;
+                int[] left = Arrays.copyOfRange(arr, 0, mid);
+                int[] right = Arrays.copyOfRange(arr, mid, n);
 
-            for (int i = 0 ; i < mid ; i++){
-                left[i] = arr[i];
+                mergeSort(left);
+                mergeSort(right);
+                merge(left,right,arr);
             }
-            for (int i = 0 ; i < n-mid ; i++){
-                right[i] = arr[mid+i];
-            }
-
-            mergeSort(left);
-            mergeSort(right);
-            merge(left,right,arr);
-        }
             return arr;
-    }
+        }
 
-    public static int[] merge(int[] left, int[] right, int[] arr) {
-        int i = 0;
-        int j = 0;
-        int k = 0;
+        private static int[] merge(int[] left, int[] right, int[] arr) {
+            int i = 0;
+            int j = 0;
+            int k = 0;
 
-        while (i < left.length && j < right.length){
+            while (i < left.length && j < right.length){
 
-            if(left[i] <= right[i]){
-                arr[k] = left[i];
-                i += 1;
+                if(left[i] <= right[j]){
+                    arr[k] = left[i];
+                    i++;
+                }else{
+                    arr[k] = right[j];
+                    j++;
+                }
+                k++;
+            }
+
+            if (i == left.length){
+                while (j < right.length){
+                    arr[k] = right[j];
+                    j++;
+                    k++;
+                }
             }else{
-                arr[k] = right[j];
-                j += 1;
+                while (i < left.length){
+                    arr[k] = left[i];
+                    i++;
+                    k++;
+                }
             }
-            k += 1;
+            return arr;
         }
-
-        if (i == left.length){
-            for(int l = j ; l < right.length ; l++){
-                arr[k] = right[l];
-                k += 1;
-            }
-        }else{
-            for(int l = i ; l < left.length ; l++){
-                arr[k] = left[l];
-                k += 1;
-            }
-        }
-        return arr;
-    }
 }

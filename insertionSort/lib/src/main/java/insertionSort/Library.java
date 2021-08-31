@@ -19,10 +19,10 @@ public class Library {
 //        System.out.println(Arrays.toString(InsertionSort.insertionSort(testArr4)));
 //        MergeSort.mergeSort(testArr1);
 
-            System.out.println(Arrays.toString(MergeSort.mergeSort(testArr1)));
-            System.out.println(Arrays.toString(MergeSort.mergeSort(testArr2)));
-            System.out.println(Arrays.toString(MergeSort.mergeSort(testArr3)));
-            System.out.println(Arrays.toString(MergeSort.mergeSort(testArr4)));
+        System.out.println(Arrays.toString(MergeSort.mergeSort(testArr1)));
+        System.out.println(Arrays.toString(MergeSort.mergeSort(testArr2)));
+        System.out.println(Arrays.toString(MergeSort.mergeSort(testArr3)));
+        System.out.println(Arrays.toString(MergeSort.mergeSort(testArr4)));
 
     }
 }
