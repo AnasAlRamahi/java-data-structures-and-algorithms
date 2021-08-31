@@ -1,4 +1,4 @@
-## Blog for code challenge 26:
+## Blog for code challenge 26: Insertion Sort
 ![BlogForChallenge26](blogChallenge26.PNG)
 
 ### Efficiency:

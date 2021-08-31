@@ -8,7 +8,7 @@ Challenge03 | [Challenge03](codeChallenge03/README.md)
 Challenge05,06,07,08 | [Challenge05,06,07,08](codeChallenge05/README.md)
 Challenge10,11,12,13 | [Challenge10,11,12,13](stacksAndQueues/README.md)
 Challenge15,16,17,18 | [Challenge15,16,17,18](trees/README.md)
-Challenge26 | [Challenge26](insertionSort/README.md)
+Challenge26,27 | [Challenge26,27](insertionSort/README.md)
 
 
 ## Setup:
