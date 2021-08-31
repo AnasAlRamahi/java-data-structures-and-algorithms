@@ -22,7 +22,7 @@ Write a method that takes in an array of integers and sorts them in an ascending
 **Inner loop:** It is responsible for the ordering of the sub arrays, when there are no left or right left to call the recursive function.
 
 ### Whiteboard Process
-![CodeChallenge27](challenge27.PNG)
+![CodeChallenge27](codeChallenge27.PNG)
 
 ### Blog for challenge 27:
 [Blog27](Blogs/Blog27.md)
