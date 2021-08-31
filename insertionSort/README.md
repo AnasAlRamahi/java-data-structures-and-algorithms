@@ -9,7 +9,21 @@ Write a method that takes in an array of integers and sorts them in an ascending
 ### Whiteboard Process
 ![CodeChallenge26](challenge26.PNG)
 
+### Blog for challenge 26:
+[Blog26](Blogs/Blog26.md)
 
-### Blog
-![BlogForChallenge26](blogChallenge26.PNG)
+
+# Challenge27: Merge Sort
+Write a method that takes in an array of integers and sorts them in an ascending order using merge sort algorithm.
+
+### Approach & Efficiency
+**Recursion:** splits the array into 2 seperated arrays, left, and right, and then makes a recursive call on the left, then on the right, then calls another method to order the returned array.
+
+**Inner loop:** It is responsible for the ordering of the sub arrays, when there are no left or right left to call the recursive function.
+
+### Whiteboard Process
+![CodeChallenge27](challenge27.PNG)
+
+### Blog for challenge 27:
+[Blog27](Blogs/Blog27.md)
 
