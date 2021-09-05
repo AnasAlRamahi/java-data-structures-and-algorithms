@@ -4,7 +4,16 @@
 package hashTable;
 
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+    public static void main(String[] args) {
+        hashTable hashTable = new hashTable(10);
+        System.out.println(hashTable.hash("Cat"));
+
+//        hashTable.add("Cat", 123);
+//        hashTable.get("Cat");
+//        hashTable.contains("Cat");
+//        System.out.println(hashTable.hashArray[6].getFirst());
+        System.out.println(hashTable.hashArray.length);
+        System.out.println(hashTable.hashArray[6].getClass().getSimpleName());
+
     }
 }
