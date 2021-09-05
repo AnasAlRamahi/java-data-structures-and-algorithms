@@ -4,7 +4,6 @@
 package hashTable;
 
 public class Library {
-
     public static void main(String[] args) {
         hashTable hashTable = new hashTable(10);
         System.out.println(hashTable.hash("Cat"));
@@ -15,7 +14,6 @@ public class Library {
 //        System.out.println(hashTable.hashArray[6].getFirst());
         System.out.println(hashTable.hashArray.length);
         System.out.println(hashTable.hashArray[6].getClass().getSimpleName());
-
 
     }
 }
