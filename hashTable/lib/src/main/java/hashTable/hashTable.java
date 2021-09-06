@@ -69,7 +69,7 @@ public class hashTable<T>{
 
     public static String repeatedWord(String input){
         String[] splittedString = input.split("[, ?.@]+", -1);
-        hashTable stringHashTable = new hashTable(1024);
+        hashTable<String> stringHashTable = new hashTable<String>(50);
         for(int i = 0 ; i < splittedString.length ; i++){
             if(stringHashTable.get(splittedString[i]) != null){
                 return splittedString[i];
