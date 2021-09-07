@@ -7,8 +7,37 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+
+    // Lab32 test:
+    @Test
+    void hashTableBSTInsertion(){
+        BinaryTree bst1 = new BinaryTree();
+        bst1.root = new TreeNode(150);
+        bst1.root.left = new TreeNode(100);
+        bst1.root.left.left = new TreeNode(75);
+        bst1.root.left.right = new TreeNode(160);
+        bst1.root.left.right.left = new TreeNode(125);
+        bst1.root.left.right.right = new TreeNode(175);
+        bst1.root.right = new TreeNode(250);
+        bst1.root.right.left = new TreeNode(200);
+        bst1.root.right.right = new TreeNode(350);
+        bst1.root.right.right.left = new TreeNode(300);
+        bst1.root.right.right.right = new TreeNode(500);
+
+        BinaryTree bst2 = new BinaryTree();
+        bst2.root = new TreeNode(42);
+        bst2.root.left = new TreeNode(100);
+        bst2.root.left.left = new TreeNode(15);
+        bst2.root.left.right = new TreeNode(160);
+        bst2.root.left.right.left = new TreeNode(125);
+        bst2.root.left.right.right = new TreeNode(175);
+        bst2.root.right = new TreeNode(600);
+        bst2.root.right.left = new TreeNode(200);
+        bst2.root.right.right = new TreeNode(350);
+        bst2.root.right.right.left = new TreeNode(4);
+        bst2.root.right.right.right = new TreeNode(500);
+
+        hashTable newHashTable = new hashTable(50);
+        assertEquals("[100, 160, 125, 175, 200, 350, 500]", newHashTable.treeIntersection(bst1, bst2).toString());
     }
 }
