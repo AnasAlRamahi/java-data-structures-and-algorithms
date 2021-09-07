@@ -4,7 +4,6 @@
 package hashTable;
 
 public class Library {
-
     public static void main(String[] args) {
         hashTable hashTable = new hashTable(10);
 //        System.out.println(hashTable.hash("Cat"));
@@ -57,5 +56,6 @@ public class Library {
 
         hashTable newHashTable = new hashTable(50);
         System.out.println(newHashTable.treeIntersection(bst1, bst2));
+
     }
 }

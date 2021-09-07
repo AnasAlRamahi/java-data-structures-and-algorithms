@@ -27,3 +27,17 @@ Write a method that takes in an array of integers and sorts them in an ascending
 ### Blog for challenge 27:
 [Blog27](Blogs/Blog27.md)
 
+
+### Approach & Efficiency
+**Partition** this method is called at first, which return the position of the pivot in it's right place while the elements in the right are higher and on the left are lower. All of this will happen in the partition method.
+
+It assigns the last elemnt on the right to be the pivot, then it compares it to the rest of the passed array, and put all the higher elements on the right and the lower on the left. Then it exits the loop and places the pivot in the middle between the right and left side, which is the right place for it.
+
+**Recursion:** it will recursively call the partition for the unordered left and right sides until we have only one or two elements of the array.
+
+### Whiteboard Process
+![CodeChallenge28](codeChallenge28.PNG)
+
+### Blog for challenge 28:
+[Blog28](Blogs/Blog28.md)
+

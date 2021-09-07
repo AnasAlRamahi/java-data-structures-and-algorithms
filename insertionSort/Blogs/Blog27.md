@@ -69,5 +69,5 @@ This will end the last inner loop and ends also the recursion and return an an o
 + Time: O(n*Log(n))
 We split each sub array into 2, which takes in half the length each time and this adds log(n) into the complexity, the inner loop which orders each sub array will iterate over each cell in the original array which adds O(n) into the complexity, making the time complexity O(n*Log(n))
 
-+ Space: O(1)
-We create small arrays each time with constant length, therefore the space complexity is O(1).
++ Space: O(n)
+We added the elements in a new array that will be sorted instead of returning them in the original array, that's why we multiply the complexity by n.
