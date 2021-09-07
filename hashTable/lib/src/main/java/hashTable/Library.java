@@ -4,7 +4,6 @@
 package hashTable;
 
 public class Library {
-
     public static void main(String[] args) {
         hashTable hashTable = new hashTable(10);
 //        System.out.println(hashTable.hash("Cat"));
@@ -27,6 +26,7 @@ public class Library {
         System.out.println(hashTable.repeatedWord(input1));
         System.out.println(hashTable.repeatedWord(input2));
         System.out.println(hashTable.repeatedWord(input3));
+
 
     }
 }
