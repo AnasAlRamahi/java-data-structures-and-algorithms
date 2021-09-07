@@ -1,6 +1,9 @@
 package hashTable;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.List;
 
 public class hashTable<T>{
     private long size;
@@ -78,4 +81,38 @@ public class hashTable<T>{
         System.out.println(Arrays.toString(splitString));
         return null;
     }
+
+    public List<Integer> treeIntersection(BinaryTree firstTree, BinaryTree secondTree){
+        hashTable newHashTable = new hashTable(50);
+        List<Integer> duplicateList = new ArrayList<>();
+        addTreeToHash(firstTree.root, newHashTable);
+        getTreeToHash(secondTree.root, duplicateList, newHashTable);
+        return duplicateList;
+    }
+
+    public void addTreeToHash(TreeNode<T> visitedNode, hashTable newHashTable){
+        newHashTable.add(visitedNode.value.toString(), visitedNode.value);
+        if(visitedNode.left != null){
+            addTreeToHash(visitedNode.left, newHashTable);
+        }
+        if(visitedNode.right != null){
+            addTreeToHash(visitedNode.right, newHashTable);
+        }
+    }
+
+    public void getTreeToHash(TreeNode<T> visitedNode, List<Integer> duplicateList, hashTable newHashTable){
+        if(newHashTable.contains(visitedNode.value.toString())){
+            duplicateList.add((int)visitedNode.value);
+        }else{
+            newHashTable.add(visitedNode.value.toString(), visitedNode.value);
+        }
+
+        if(visitedNode.left != null){
+            getTreeToHash(visitedNode.left, duplicateList, newHashTable);
+        }
+        if(visitedNode.right != null){
+            getTreeToHash(visitedNode.right, duplicateList, newHashTable);
+        }
+    }
+
 }
