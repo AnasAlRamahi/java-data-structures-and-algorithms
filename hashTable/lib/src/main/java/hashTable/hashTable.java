@@ -1,7 +1,6 @@
 package hashTable;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 
 public class hashTable<T>{
     private long size;
@@ -39,11 +38,11 @@ public class hashTable<T>{
             return null;
         }else{
             Node counter;
-            counter = hashArray[(int) hashedKey];
+            counter = hashArray[(int)hashedKey];
             while(counter != null)
-                if(counter.getKey() == key)
+                if(counter.getKey().equals(key)){
                     return (T)counter.getValue();
-                else{
+                }else{
                     counter = counter.next;
                 }
         }
@@ -58,7 +57,7 @@ public class hashTable<T>{
             Node counter;
             counter = hashArray[(int) hashedKey];
             while(counter != null)
-                if(counter.getKey() == key)
+                if(counter.getKey().equals(key))
                     return true;
                 else{
                     counter = counter.next;
@@ -68,15 +67,15 @@ public class hashTable<T>{
     }
 
     public static String repeatedWord(String input){
-        String[] splittedString = input.split("[, ?.@]+", -1);
-        hashTable<String> stringHashTable = new hashTable<String>(50);
-        for(int i = 0 ; i < splittedString.length ; i++){
-            if(stringHashTable.get(splittedString[i]) != null){
-                return splittedString[i];
+        String[] splitString = input.toLowerCase().split("[, ?.@]+", -1);
+        hashTable stringHashTable = new hashTable(50);
+        for(int i = 0 ; i < splitString.length ; i++){
+            if(stringHashTable.get(splitString[i]) != null){
+                return splitString[i];
             }
-            stringHashTable.add(splittedString[i], splittedString[i]);
+            stringHashTable.add(splitString[i], splitString[i]);
         }
-        System.out.println(Arrays.toString(splittedString));
+        System.out.println(Arrays.toString(splitString));
         return null;
     }
 }

@@ -5,7 +5,7 @@ package hashTable;
 
 public class Library {
     public static void main(String[] args) {
-//        hashTable hashTable = new hashTable(10);
+        hashTable hashTable = new hashTable(10);
 //        System.out.println(hashTable.hash("Cat"));
 //
 //        hashTable.add("Cat", 123);
