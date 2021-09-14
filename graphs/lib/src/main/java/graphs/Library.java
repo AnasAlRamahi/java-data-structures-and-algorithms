@@ -18,15 +18,19 @@ public class Library {
         graph.addNode(n3);
         graph.addNode(n4);
 
-        System.out.println(graph.getNodes().toString());
-        System.out.println(graph.size());
+//        System.out.println(graph.getNodes().toString());
+//        System.out.println(graph.size());
         graph.addEdge(n1,n2);
         graph.addEdge(n1,n3);
         graph.addEdge(n1,n4);
-        System.out.println(graph.getNeighbors(n1));
-        System.out.println(graph.edgeListString(n1));
+//        System.out.println(graph.getNeighbors(n1));
+//        System.out.println(graph.edgeListString(n1));
 
-
+//        System.out.println(graph.toString());
+//        System.out.println(graph.getNeighbors(n1));
+//        System.out.println(graph.edgeListString(n1));
+//
+        System.out.println(graph.breadthFirst(n2));
 
     }
 }
